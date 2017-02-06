@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<header>
+  <title>Contact Card</title>
+   <link rel="stylesheet" type="text/css" href="contactcard.css">
+  <script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
+</header>
+<body>
+  <script type="text/javascript">
+  $(document).ready(function(){
+      $('#form').submit(function(){
+        var fn1 = $('#fn1').val();
+        var ln2 = $('#ln2').val();
+        var des4 = $('#des4').val();
+        $('#cardname1').text(fn1);
+        $('#cardname2').text(ln2);
+        $('#cardshow').text(des4);
+        return false;
+       });
+  });
+  $(document).ready(function(){
+      $('#cardclick').click(function(){
+      $('#cardshow').show()
+      $('#cardclick, #cardname1, #cardname2').hide()
+      $('#cardclick').hover(function(){
+      $('#cardclick').css('cursor', 'pointer')
+      $("#form").submit(function() {
+      $("#form")[0].reset();
+      });
+      });
+      });
+  });
+  </script>
+  <div id="wrapper1">
+    <form action="action_page.php" id="form">
+      <p>First name:
+      <input type="text" name="firstname" value="" id="fn1"></p>
+      <p>Last name:
+      <input type="text" name="lastname"  value="" id="ln2"></p>
+      <p>Description:</p>
+      <p><textarea id="des4" name="description" rows="4" cols="40" value="">Enter description..</textarea></p>
+      <p><input type="submit" value="Add User"></p>
+    </form>
+  </div>
+  <div id="wrapper2">
+    <div id="contactcard">
+      <p><span id="cardname1"></span><span id="cardname2"></span></p>
+      <p><span id="cardclick">Click for Description!</span></p>
+      <p><span id="cardshow"></span></p>
+    </div>
+  </div>
+</body>
+</html>
